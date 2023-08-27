@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "noImplicitAny": true,
+    "outDir": "build",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES5"
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.test.*",
+    "**/*..*"
+  ],
+  "include": [
+    "src",
+    "tools"
+  ]
+}

@@ -1,0 +1,460 @@
+{
+  "openapi": "3.0.1",
+  "servers": [
+    {
+      "description": "SwaggerHub API Auto Mocking",
+      "url": "http://localhost:8080/rest/api/v1/auth"
+    }
+  ],
+  "info": {
+    "version": "1.0.1",
+    "title": "alpha-auth-api",
+    "description": "The API Alpha Auth"
+  },
+  "paths": {
+    "/auth": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Check auth",
+        "description": "Check authentication information",
+        "operationId": "getAuth",
+        "responses": {
+          "200": {
+            "description": "Authentication successfull"
+          },
+          "401": {
+            "description": "Authentication failed"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Create session",
+        "description": "Creates a session",
+        "operationId": "postAuth",
+        "responses": {
+          "201": {
+            "description": "Session created"
+          },
+          "401": {
+            "description": "Authentication failed"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Delete session",
+        "operationId": "deleteAuth",
+        "responses": {
+          "200": {
+            "description": "Session deleted"
+          }
+        }
+      }
+    },
+    "/account/register": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "postAccountRegister",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Credentials"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountToken"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "putAccountRegister",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountToken"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/account/recover": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "postAccountRecover",
+        "description": "Creates a recover request",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CredentialsUsername"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Recover initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountToken"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "putAccountRecover",
+        "description": "Proceed next steps of recover process",
+        "responses": {
+          "200": {
+            "description": "Operation successfull",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountToken"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/account/changemail": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "postAccountChangeMail",
+        "description": "Creates a change mail request",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CredentialsUsername"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Change mail initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountToken"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid mail proposed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "putAccountChangeMail",
+        "description": "Complete changemail process",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountToken"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation successfull"
+          }
+        }
+      }
+    },
+    "/account/{accountId}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "getAccount",
+        "description": "Retrieve account information",
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "Account id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successfull",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "patchAccount",
+        "description": "Updates account information",
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "Account id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successfull",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data sent"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/user/{userId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "getUser",
+        "description": "Retrieve user information",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User information retrived",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid credentials"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "patchUser",
+        "description": "Updates user information",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update successfull",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data sent"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/{userId}/avatar": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "postUserAvatar",
+        "description": "Updates user avatar",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "User id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User avatar modified",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data sent"
+          },
+          "401": {
+            "description": "Invalid credentials"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Credentials": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "CredentialsUsername": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          }
+        }
+      },
+      "Account": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "AccountToken": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

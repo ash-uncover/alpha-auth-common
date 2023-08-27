@@ -1,0 +1,12 @@
+# Logs
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+# Distribution & builds
+build
+dist
+dist-dbg
+target
+__coverage

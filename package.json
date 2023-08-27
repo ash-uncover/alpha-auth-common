@@ -6,12 +6,13 @@
   "main": "build/index.ts",
   "types": "build/index.d.ts",
   "scripts": {
-    "build": "npm run build:bundle && npm run build:compile",
+    "build": "npm run build:generate && npm run build:bundle && npm run build:compile",
     "build:bundle": "webpack",
     "build:compile": "tsc",
+    "build:generate": "js-swagger-generator --files=resources/swagger --output=src",
     "format": "prettier --write \"src//*.ts\" \"src//.tsx\" \"src/**/.js\" \"src/*/.jsx\"",
-    "lint": "tslint -p tsconfig.json",
-    "generate": "js-swagger-generator --files=resources/swagger --output=src"
+    "install:local": "npm i && npm link @uncover/js-swagger-generator",
+    "lint": "tslint -p tsconfig.json"
   },
   "dependencies": {
     "@uncover/js-utils": "0.0.13",

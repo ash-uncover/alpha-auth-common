@@ -1,24 +1,24 @@
 // Account
 export interface Account {
-    'type'?: String
-    'username'?: String
+    'type'?: string
+    'username'?: string
 }
 // AccountToken
 export interface AccountToken {
-    'token'?: String
+    'token'?: string
 }
 // Credentials
 export interface Credentials {
-    'password'?: String
-    'username'?: String
+    'password': string
+    'username': string
 }
 // CredentialsUsername
 export interface CredentialsUsername {
-    'username'?: String
+    'username'?: string
 }
 // User
 export interface User {
-    'avatar'?: String
-    'description'?: String
-    'name'?: String
+    'avatar'?: string
+    'description'?: string
+    'name'?: string
 }

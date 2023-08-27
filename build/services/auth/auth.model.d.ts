@@ -1,19 +1,19 @@
 export interface Account {
-    'type'?: String;
-    'username'?: String;
+    'type'?: string;
+    'username'?: string;
 }
 export interface AccountToken {
-    'token'?: String;
+    'token'?: string;
 }
 export interface Credentials {
-    'password'?: String;
-    'username'?: String;
+    'password': string;
+    'username': string;
 }
 export interface CredentialsUsername {
-    'username'?: String;
+    'username'?: string;
 }
 export interface User {
-    'avatar'?: String;
-    'description'?: String;
-    'name'?: String;
+    'avatar'?: string;
+    'description'?: string;
+    'name'?: string;
 }

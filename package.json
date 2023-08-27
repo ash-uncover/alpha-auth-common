@@ -1,11 +1,16 @@
 {
   "name": "alpha-auth-common",
   "version": "1.0.0",
-  "description": "",
-  "author": "aSh <ash.uncover@gmail.com>",
-  "license": "ISC",
-  "main": "index.ts",
+  "author": "aSH <ash.uncover@gmail.com>",
+  "private": true,
+  "main": "build/index.ts",
+  "types": "build/index.d.ts",
   "scripts": {
+    "build": "npm run build:bundle && npm run build:compile",
+    "build:bundle": "webpack",
+    "build:compile": "tsc",
+    "format": "prettier --write \"src//*.ts\" \"src//.tsx\" \"src/**/.js\" \"src/*/.jsx\"",
+    "lint": "tslint -p tsconfig.json",
     "generate": "js-swagger-generator --files=resources/swagger --output=src"
   },
   "dependencies": {
@@ -15,11 +20,10 @@
   },
   "devDependencies": {
     "@types/node": "20.5.6",
-    "@types/qunit": "2.19.6",
-    "@types/sinon": "10.0.16",
     "@uncover/js-swagger-generator": "0.0.6",
     "ts-loader": "9.4.4",
     "ts-node": "10.9.1",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "webpack-cli": "^5.1.4"
   }
 }

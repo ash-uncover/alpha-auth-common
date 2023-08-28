@@ -1,346 +1,326 @@
----
-openapi: "3.0.1"
+openapi: 3.1.0
 servers:
-- description: "SwaggerHub API Auto Mocking"
-  url: "http://localhost:8080/rest/api/v1/auth"
+  - description: SwaggerHub API Auto Mocking
+    url: http://localhost:8080/rest/api/v1/auth
 info:
-  version: "1.0.0"
-  title: "alpha-auth-api"
-  description: "The API Alpha Auth"
+  version: 1.0.0
+  title: alpha-auth-api
+  description: The API Alpha Auth
 paths:
   /auth:
     get:
       tags:
-      - "Auth"
-      summary: "Check auth"
-      description: "Check authentication information"
-      operationId: "getAuth"
+        - Auth
+      summary: Check auth
+      description: Check authentication information
+      operationId: getAuth
       responses:
-        "200":
-          description: "Authentication successfull"
-        "401":
-          description: "Authentication failed"
+        '200':
+          description: Authentication successfull
+        '401':
+          description: Authentication failed
     post:
       tags:
-      - "Auth"
-      summary: "Create session"
-      description: "Creates a session"
-      operationId: "postAuth"
+        - Auth
+      summary: Create session
+      description: Creates a session
+      operationId: postAuth
       responses:
-        "201":
-          description: "Session created"
-        "401":
-          description: "Authentication failed"
+        '201':
+          description: Session created
+        '401':
+          description: Authentication failed
     delete:
       tags:
-      - "Auth"
-      summary: "Delete session"
-      operationId: "deleteAuth"
+        - Auth
+      summary: Delete session
+      operationId: deleteAuth
       responses:
-        "200":
-          description: "Session deleted"
+        '200':
+          description: Session deleted
   /accounts/register:
     post:
       tags:
-      - "Account"
-      operationId: "postAccountRegister"
+        - Account
+      operationId: postAccountRegister
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Credentials"
+              $ref: '#/components/schemas/Credentials'
       responses:
-        "200":
-          description: "response"
+        '200':
+          description: response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AccountToken"
+                $ref: '#/components/schemas/AccountToken'
     put:
       tags:
-      - "Account"
-      operationId: "putAccountRegister"
+        - Account
+      operationId: putAccountRegister
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AccountTokenRegister"
+              $ref: '#/components/schemas/AccountTokenRegister'
       responses:
-        "200":
-          description: "response"
+        '200':
+          description: response
   /accounts/recover:
     post:
       tags:
-      - "Account"
-      operationId: "postAccountRecover"
-      description: "Creates a recover request"
+        - Account
+      operationId: postAccountRecover
+      description: Creates a recover request
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CredentialsUsername"
+              $ref: '#/components/schemas/CredentialsUsername'
       responses:
-        "200":
-          description: "Recover initiated"
+        '200':
+          description: Recover initiated
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AccountToken"
+                $ref: '#/components/schemas/AccountToken'
     put:
       tags:
-      - "Account"
-      operationId: "putAccountRecover"
-      description: "Proceed next steps of recover process"
+        - Account
+      operationId: putAccountRecover
+      description: Proceed next steps of recover process
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AccountTokenRecover"
+              $ref: '#/components/schemas/AccountTokenRecover'
       responses:
-        "200":
-          description: "Operation successfull"
+        '200':
+          description: Operation successfull
   /accounts/changemail:
     post:
       tags:
-      - "Account"
-      operationId: "postAccountChangeMail"
-      description: "Creates a change mail request"
+        - Account
+      operationId: postAccountChangeMail
+      description: Creates a change mail request
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CredentialsUsername"
+              $ref: '#/components/schemas/CredentialsUsername'
       responses:
-        "200":
-          description: "Change mail initiated"
+        '200':
+          description: Change mail initiated
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AccountToken"
-        "400":
-          description: "Invalid mail proposed"
-        "401":
-          description: "Unauthorized"
+                $ref: '#/components/schemas/AccountToken'
+        '400':
+          description: Invalid mail proposed
+        '401':
+          description: Unauthorized
     put:
       tags:
-      - "Account"
-      operationId: "putAccountChangeMail"
-      description: "Complete changemail process"
+        - Account
+      operationId: putAccountChangeMail
+      description: Complete changemail process
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AccountToken"
+              $ref: '#/components/schemas/AccountToken'
       responses:
-        "200":
-          description: "Operation successfull"
+        '200':
+          description: Operation successfull
   /accounts/{accountId}:
     get:
       tags:
-      - "Account"
-      operationId: "getAccount"
-      description: "Retrieve account information"
+        - Account
+      operationId: getAccount
+      description: Retrieve account information
       parameters:
-      - name: "accountId"
-        in: "path"
-        description: "Account id"
-        required: true
-        schema:
-          type: "string"
+        - name: accountId
+          in: path
+          description: Account id
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
-          description: "Update successfull"
+        '200':
+          description: Update successfull
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Account"
-        "401":
-          description: "Unauthorized"
+                $ref: '#/components/schemas/Account'
+        '401':
+          description: Unauthorized
     patch:
       tags:
-      - "Account"
-      operationId: "patchAccount"
-      description: "Updates account information"
+        - Account
+      operationId: patchAccount
+      description: Updates account information
       parameters:
-      - name: "accountId"
-        in: "path"
-        description: "Account id"
-        required: true
-        schema:
-          type: "string"
+        - name: accountId
+          in: path
+          description: Account id
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
-          description: "Update successfull"
+        '200':
+          description: Update successfull
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Account"
-        "400":
-          description: "Invalid data sent"
-        "401":
-          description: "Unauthorized"
+                $ref: '#/components/schemas/Account'
+        '400':
+          description: Invalid data sent
+        '401':
+          description: Unauthorized
   /users/{userId}:
     get:
       tags:
-      - "User"
-      operationId: "getUser"
-      description: "Retrieve user information"
+        - User
+      operationId: getUser
+      description: Retrieve user information
       parameters:
-      - name: "userId"
-        in: "path"
-        description: "User id"
-        required: true
-        schema:
-          type: "string"
+        - name: userId
+          in: path
+          description: User id
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
-          description: "User information retrived"
+        '200':
+          description: User information retrived
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
-        "401":
-          description: "Invalid credentials"
-        "404":
-          description: "User not found"
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Invalid credentials
+        '404':
+          description: User not found
     patch:
       tags:
-      - "User"
-      operationId: "patchUser"
-      description: "Updates user information"
+        - User
+      operationId: patchUser
+      description: Updates user information
       parameters:
-      - name: "userId"
-        in: "path"
-        description: "User id"
-        required: true
-        schema:
-          type: "string"
+        - name: userId
+          in: path
+          description: User id
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
-          description: "Update successfull"
+        '200':
+          description: Update successfull
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
-        "400":
-          description: "Invalid data sent"
-        "401":
-          description: "Unauthorized"
-        "404":
-          description: "User not found"
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid data sent
+        '401':
+          description: Unauthorized
+        '404':
+          description: User not found
   /users/{userId}/avatar:
     post:
       tags:
-      - "User"
-      operationId: "postUserAvatar"
-      description: "Updates user avatar"
-      consumes:
-         - multipart/form-data
+        - User
+      operationId: postUserAvatar
+      description: Updates user avatar
       parameters:
-      - name: "userId"
-        in: "path"
-        description: "User identifier"
-        required: true
-        schema:
-          type: "string"
-      - in: "formData"
-        name: "file"
-        type: "file"
-        description: "The file to upload."
+        - name: userId
+          in: path
+          description: User identifier
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/octet-stream: {}
       responses:
-        "200":
-          description: "User avatar modified"
+        '200':
+          description: User avatar modified
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
-        "400":
-          description: "Invalid data sent"
-        "401":
-          description: "Invalid credentials"
-        "404":
-          description: "User not found"
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid data sent
+        '401':
+          description: Invalid credentials
+        '404':
+          description: User not found
 components:
   schemas:
     Credentials:
-      type: "object"
+      type: object
       required:
-      - "username"
-      - "password"
+        - username
+        - password
       properties:
         username:
-          type: "string"
+          type: string
         password:
-          type: "string"
-
+          type: string
     CredentialsUsername:
-      type: "object"
+      type: object
       properties:
         username:
-          type: "string"
-
+          type: string
     Account:
-      type: "object"
+      type: object
       properties:
         username:
-          type: "string"
+          type: string
         type:
-          type: "string"
-
+          type: string
     AccountToken:
-      type: "object"
+      type: object
       required:
-      - "token"
+        - token
       properties:
         token:
-          type: "string"
-
+          type: string
     AccountTokenRegister:
-      type: "object"
+      type: object
       required:
-      - "secret"
-      - "token"
-      - "username"
+        - secret
+        - token
+        - username
       properties:
         secret:
-          type: "string"
+          type: string
         token:
-          type: "string"
+          type: string
         username:
-          type: "string"
-
+          type: string
     AccountTokenRecover:
-      type: "object"
+      type: object
       required:
-      - "secret"
-      - "token"
-      - "username"
+        - secret
+        - token
+        - username
       properties:
         password:
-          type: "string"
+          type: string
         secret:
-          type: "string"
+          type: string
         token:
-          type: "string"
+          type: string
         username:
-          type: "string"
-
+          type: string
     User:
-      type: "object"
+      type: object
       properties:
         name:
-          type: "string"
+          type: string
         avatar:
-          type: "string"
+          type: string
         description:
-          type: "string"
-
-    UserAvatar:
-      type: "object"
-      properties:
-        name:
-          type: "string"
-        avatar:
-          type: "string"
-        description:
-          type: "string"
+          type: string

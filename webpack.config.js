@@ -19,7 +19,7 @@ const configBase = {
     clean: true,
     path: DIR_DIST,
     filename: '[name].js',
-    filename: './spa-frontend-services-[name].js',
+    filename: './alpha-auth-common-[name].js',
     library: 'alpha-auth-common',
     libraryTarget: 'commonjs',
   },

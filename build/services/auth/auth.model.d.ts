@@ -3,7 +3,18 @@ export interface Account {
     'username'?: string;
 }
 export interface AccountToken {
-    'token'?: string;
+    'token': string;
+}
+export interface AccountTokenRecover {
+    'password'?: string;
+    'secret': string;
+    'token': string;
+    'username': string;
+}
+export interface AccountTokenRegister {
+    'secret': string;
+    'token': string;
+    'username': string;
 }
 export interface Credentials {
     'password': string;

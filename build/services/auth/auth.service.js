@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.postUserAvatar = exports.getUser = exports.deleteAuth = exports.getAuth = exports.postAuth = exports.getAccount = exports.putAccountRegister = exports.postAccountRegister = exports.putAccountRecover = exports.postAccountRecover = exports.putAccountChangeMail = exports.postAccountChangeMail = void 0;
 var js_utils_fetch_1 = require("@uncover/js-utils-fetch");
 /**
- * POST /account/changemail
+ * POST /accounts/changemail
  * postAccountChangeMail
  */
 var postAccountChangeMail = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
@@ -47,7 +47,7 @@ var postAccountChangeMail = function (service, payload) { return __awaiter(void 
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                url = "/account/changemail";
+                url = "/accounts/changemail";
                 options = {
                     method: 'POST',
                     body: JSON.stringify(payload),
@@ -64,7 +64,7 @@ var postAccountChangeMail = function (service, payload) { return __awaiter(void 
 }); };
 exports.postAccountChangeMail = postAccountChangeMail;
 /**
- * PUT /account/changemail
+ * PUT /accounts/changemail
  * putAccountChangeMail
  */
 var putAccountChangeMail = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
@@ -72,7 +72,7 @@ var putAccountChangeMail = function (service, payload) { return __awaiter(void 0
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                url = "/account/changemail";
+                url = "/accounts/changemail";
                 options = {
                     method: 'PUT',
                     body: JSON.stringify(payload),
@@ -89,7 +89,7 @@ var putAccountChangeMail = function (service, payload) { return __awaiter(void 0
 }); };
 exports.putAccountChangeMail = putAccountChangeMail;
 /**
- * POST /account/recover
+ * POST /accounts/recover
  * postAccountRecover
  */
 var postAccountRecover = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
@@ -97,7 +97,7 @@ var postAccountRecover = function (service, payload) { return __awaiter(void 0, 
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                url = "/account/recover";
+                url = "/accounts/recover";
                 options = {
                     method: 'POST',
                     body: JSON.stringify(payload),
@@ -114,17 +114,18 @@ var postAccountRecover = function (service, payload) { return __awaiter(void 0, 
 }); };
 exports.postAccountRecover = postAccountRecover;
 /**
- * PUT /account/recover
+ * PUT /accounts/recover
  * putAccountRecover
  */
-var putAccountRecover = function (service) { return __awaiter(void 0, void 0, void 0, function () {
+var putAccountRecover = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
     var url, options, response, responseData;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                url = "/account/recover";
+                url = "/accounts/recover";
                 options = {
                     method: 'PUT',
+                    body: JSON.stringify(payload),
                 };
                 return [4 /*yield*/, service.fetch(url, options)];
             case 1:
@@ -138,7 +139,7 @@ var putAccountRecover = function (service) { return __awaiter(void 0, void 0, vo
 }); };
 exports.putAccountRecover = putAccountRecover;
 /**
- * POST /account/register
+ * POST /accounts/register
  * postAccountRegister
  */
 var postAccountRegister = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
@@ -146,7 +147,7 @@ var postAccountRegister = function (service, payload) { return __awaiter(void 0,
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                url = "/account/register";
+                url = "/accounts/register";
                 options = {
                     method: 'POST',
                     body: JSON.stringify(payload),
@@ -163,17 +164,18 @@ var postAccountRegister = function (service, payload) { return __awaiter(void 0,
 }); };
 exports.postAccountRegister = postAccountRegister;
 /**
- * PUT /account/register
+ * PUT /accounts/register
  * putAccountRegister
  */
-var putAccountRegister = function (service) { return __awaiter(void 0, void 0, void 0, function () {
+var putAccountRegister = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
     var url, options, response, responseData;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                url = "/account/register";
+                url = "/accounts/register";
                 options = {
                     method: 'PUT',
+                    body: JSON.stringify(payload),
                 };
                 return [4 /*yield*/, service.fetch(url, options)];
             case 1:
@@ -187,7 +189,7 @@ var putAccountRegister = function (service) { return __awaiter(void 0, void 0, v
 }); };
 exports.putAccountRegister = putAccountRegister;
 /**
- * GET /account/{accountId}
+ * GET /accounts/{accountId}
  * getAccount
  * @param {String} accountId - URL parameter
  */
@@ -196,7 +198,7 @@ var getAccount = function (service, accountId) { return __awaiter(void 0, void 0
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                url = "/account/".concat(accountId);
+                url = "/accounts/".concat(accountId);
                 options = {
                     method: 'GET',
                 };
@@ -284,7 +286,7 @@ var deleteAuth = function (service) { return __awaiter(void 0, void 0, void 0, f
 }); };
 exports.deleteAuth = deleteAuth;
 /**
- * GET /user/{userId}
+ * GET /users/{userId}
  * getUser
  * @param {String} userId - URL parameter
  */
@@ -293,7 +295,7 @@ var getUser = function (service, userId) { return __awaiter(void 0, void 0, void
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                url = "/user/".concat(userId);
+                url = "/users/".concat(userId);
                 options = {
                     method: 'GET',
                 };
@@ -309,7 +311,7 @@ var getUser = function (service, userId) { return __awaiter(void 0, void 0, void
 }); };
 exports.getUser = getUser;
 /**
- * POST /user/{userId}/avatar
+ * POST /users/{userId}/avatar
  * postUserAvatar
  * @param {String} userId - URL parameter
  */
@@ -318,7 +320,7 @@ var postUserAvatar = function (service, userId) { return __awaiter(void 0, void 
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                url = "/user/".concat(userId, "/avatar");
+                url = "/users/".concat(userId, "/avatar");
                 options = {
                     method: 'POST',
                 };
@@ -335,18 +337,18 @@ var postUserAvatar = function (service, userId) { return __awaiter(void 0, void 
 exports.postUserAvatar = postUserAvatar;
 var AuthService = function (config) {
     var service = new js_utils_fetch_1.Service(config, '/rest/api/v1/auth', {
-        'account': {
+        'accounts': {
             'changemail': {
                 post: function (payload) { return (0, exports.postAccountChangeMail)(service, payload); },
                 put: function (payload) { return (0, exports.putAccountChangeMail)(service, payload); },
             },
             'recover': {
                 post: function (payload) { return (0, exports.postAccountRecover)(service, payload); },
-                put: function () { return (0, exports.putAccountRecover)(service); },
+                put: function (payload) { return (0, exports.putAccountRecover)(service, payload); },
             },
             'register': {
                 post: function (payload) { return (0, exports.postAccountRegister)(service, payload); },
-                put: function () { return (0, exports.putAccountRegister)(service); },
+                put: function (payload) { return (0, exports.putAccountRegister)(service, payload); },
             },
             '$accountId': {
                 get: function (accountId) { return (0, exports.getAccount)(service, accountId); },
@@ -357,7 +359,7 @@ var AuthService = function (config) {
             get: function () { return (0, exports.getAuth)(service); },
             delete: function () { return (0, exports.deleteAuth)(service); },
         },
-        'user': {
+        'users': {
             '$userId': {
                 get: function (userId) { return (0, exports.getUser)(service, userId); },
                 'avatar': {

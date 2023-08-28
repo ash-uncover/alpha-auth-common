@@ -7,8 +7,16 @@ export interface Account {
 export interface AccountToken {
   'token': string
 }
-// AccountTokenNamed
-export interface AccountTokenNamed {
+// AccountTokenRecover
+export interface AccountTokenRecover {
+  'password'?: string
+  'secret': string
+  'token': string
+  'username': string
+}
+// AccountTokenRegister
+export interface AccountTokenRegister {
+  'secret': string
   'token': string
   'username': string
 }

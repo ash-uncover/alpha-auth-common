@@ -2,7 +2,8 @@ import { Service } from '@uncover/js-utils-fetch'
 import {
   Account,
   AccountToken,
-  AccountTokenNamed,
+  AccountTokenRecover,
+  AccountTokenRegister,
   Credentials,
   CredentialsUsername,
   User,
@@ -57,10 +58,11 @@ export const postAccountRecover = async (service:any, payload:CredentialsUsernam
  * PUT /accounts/recover
  * putAccountRecover
  */
-export const putAccountRecover = async (service:any) => {
+export const putAccountRecover = async (service:any, payload:AccountTokenRecover) => {
   const url = `/accounts/recover`
   const options = {
     method: 'PUT',
+    body: JSON.stringify(payload),
   }
   const response = await service.fetch(url, options)
   const responseData = await response.json()
@@ -86,10 +88,11 @@ export const postAccountRegister = async (service:any, payload:Credentials) => {
  * PUT /accounts/register
  * putAccountRegister
  */
-export const putAccountRegister = async (service:any) => {
+export const putAccountRegister = async (service:any, payload:AccountTokenRegister) => {
   const url = `/accounts/register`
   const options = {
     method: 'PUT',
+    body: JSON.stringify(payload),
   }
   const response = await service.fetch(url, options)
   const responseData = await response.json()
@@ -192,11 +195,11 @@ const AuthService = (config: any) => {
       },
       'recover': {
         post: (payload:CredentialsUsername) => postAccountRecover(service, payload),
-        put: () => putAccountRecover(service),
+        put: (payload:AccountTokenRecover) => putAccountRecover(service, payload),
       },
       'register': {
         post: (payload:Credentials) => postAccountRegister(service, payload),
-        put: () => putAccountRegister(service),
+        put: (payload:AccountTokenRegister) => putAccountRegister(service, payload),
       },
       '$accountId': {
         get: (accountId:String) => getAccount(service, accountId),

@@ -1,36 +1,36 @@
-import { AccountToken, Credentials, CredentialsUsername } from './auth.model';
+import { AccountToken, AccountTokenRecover, AccountTokenRegister, Credentials, CredentialsUsername } from './auth.model';
 /**
- * POST /account/changemail
+ * POST /accounts/changemail
  * postAccountChangeMail
  */
 export declare const postAccountChangeMail: (service: any, payload: CredentialsUsername) => Promise<any>;
 /**
- * PUT /account/changemail
+ * PUT /accounts/changemail
  * putAccountChangeMail
  */
 export declare const putAccountChangeMail: (service: any, payload: AccountToken) => Promise<any>;
 /**
- * POST /account/recover
+ * POST /accounts/recover
  * postAccountRecover
  */
 export declare const postAccountRecover: (service: any, payload: CredentialsUsername) => Promise<any>;
 /**
- * PUT /account/recover
+ * PUT /accounts/recover
  * putAccountRecover
  */
-export declare const putAccountRecover: (service: any) => Promise<any>;
+export declare const putAccountRecover: (service: any, payload: AccountTokenRecover) => Promise<any>;
 /**
- * POST /account/register
+ * POST /accounts/register
  * postAccountRegister
  */
 export declare const postAccountRegister: (service: any, payload: Credentials) => Promise<any>;
 /**
- * PUT /account/register
+ * PUT /accounts/register
  * putAccountRegister
  */
-export declare const putAccountRegister: (service: any) => Promise<any>;
+export declare const putAccountRegister: (service: any, payload: AccountTokenRegister) => Promise<any>;
 /**
- * GET /account/{accountId}
+ * GET /accounts/{accountId}
  * getAccount
  * @param {String} accountId - URL parameter
  */
@@ -51,13 +51,13 @@ export declare const getAuth: (service: any) => Promise<any>;
  */
 export declare const deleteAuth: (service: any) => Promise<any>;
 /**
- * GET /user/{userId}
+ * GET /users/{userId}
  * getUser
  * @param {String} userId - URL parameter
  */
 export declare const getUser: (service: any, userId: String) => Promise<any>;
 /**
- * POST /user/{userId}/avatar
+ * POST /users/{userId}/avatar
  * postUserAvatar
  * @param {String} userId - URL parameter
  */

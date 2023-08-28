@@ -60,13 +60,14 @@ paths:
       tags:
       - "Account"
       operationId: "putAccountRegister"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountTokenRegister"
       responses:
         "200":
           description: "response"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AccountToken"
   /accounts/recover:
     post:
       tags:
@@ -90,13 +91,14 @@ paths:
       - "Account"
       operationId: "putAccountRecover"
       description: "Proceed next steps of recover process"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountTokenRecover"
       responses:
         "200":
           description: "Operation successfull"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/AccountToken"
   /accounts/changemail:
     post:
       tags:
@@ -232,13 +234,19 @@ paths:
       - "User"
       operationId: "postUserAvatar"
       description: "Updates user avatar"
+      consumes:
+         - multipart/form-data
       parameters:
       - name: "userId"
         in: "path"
-        description: "User id"
+        description: "User identifier"
         required: true
         schema:
           type: "string"
+      - in: "formData"
+        name: "file"
+        type: "file"
+        description: "The file to upload."
       responses:
         "200":
           description: "User avatar modified"
@@ -257,8 +265,8 @@ components:
     Credentials:
       type: "object"
       required:
-        - "username"
-        - "password"
+      - "username"
+      - "password"
       properties:
         username:
           type: "string"
@@ -282,23 +290,52 @@ components:
     AccountToken:
       type: "object"
       required:
-        - "token"
+      - "token"
       properties:
         token:
           type: "string"
 
-    AccountTokenNamed:
+    AccountTokenRegister:
       type: "object"
       required:
-        - "username"
-        - "token"
+      - "secret"
+      - "token"
+      - "username"
       properties:
-        username:
+        secret:
           type: "string"
         token:
+          type: "string"
+        username:
+          type: "string"
+
+    AccountTokenRecover:
+      type: "object"
+      required:
+      - "secret"
+      - "token"
+      - "username"
+      properties:
+        password:
+          type: "string"
+        secret:
+          type: "string"
+        token:
+          type: "string"
+        username:
           type: "string"
 
     User:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        avatar:
+          type: "string"
+        description:
+          type: "string"
+
+    UserAvatar:
       type: "object"
       properties:
         name:

@@ -176,10 +176,11 @@ export const getUser = async (service:any, userId:String) => {
  * postUserAvatar
  * @param {String} userId - URL parameter
  */
-export const postUserAvatar = async (service:any, userId:String) => {
+export const postUserAvatar = async (service:any, userId:String, payload:any) => {
   const url = `/users/${userId}/avatar`
   const options = {
     method: 'POST',
+    body: payload,
   }
   const response = await service.fetch(url, options)
   const responseData = await response.json()
@@ -187,7 +188,7 @@ export const postUserAvatar = async (service:any, userId:String) => {
 }
 
 const AuthService = (config: any) => {
-  const service = new Service(config, '/rest/api/v1/auth', {
+  const service = new Service(config, '/rest/api/v1', {
     'accounts': {
       'changemail': {
         post: (payload:CredentialsUsername) => postAccountChangeMail(service, payload),
@@ -214,7 +215,7 @@ const AuthService = (config: any) => {
       '$userId': {
         get: (userId:String) => getUser(service, userId),
         'avatar': {
-          post: (userId:String) => postUserAvatar(service, userId),
+          post: (userId:String, payload:any) => postUserAvatar(service, userId, payload),
         },
       },
     },

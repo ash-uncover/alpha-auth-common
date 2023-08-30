@@ -1,9 +1,9 @@
 openapi: 3.1.0
 servers:
-  - description: SwaggerHub API Auto Mocking
-    url: http://localhost:8080/rest/api/v1/auth
+  - description: Localhost server for development
+    url: http://localhost:8080/rest/api/v1
 info:
-  version: 1.0.0
+  version: 1.0.1
   title: alpha-auth-api
   description: The API Alpha Auth
 paths:
@@ -242,7 +242,7 @@ paths:
             type: string
       requestBody:
         content:
-          application/octet-stream: {}
+          multipart/form-data: {}
       responses:
         '200':
           description: User avatar modified

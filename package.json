@@ -13,10 +13,10 @@
     "format": "prettier --write \"src//*.ts\" \"src//.tsx\" \"src/**/.js\" \"src/*/.jsx\"",
     "install-local": "npm i && npm link @uncover/js-swagger-generator",
     "lint": "tslint -p tsconfig.json",
-    "start:all": "concurrently \"npm run start:db\" \"npm run start:api\" \"npm run start:ui\"",
-    "start:api": "cd ../alpha-auth-api && npm run start:dev",
+    "start:all": "npm run install-local && npm run build && concurrently \"npm run start:db\" \"npm run start:api\" \"npm run start:ui\"",
+    "start:api": "cd ../alpha-auth-api && npm run install-local && npm run start:dev",
     "start:db": "cd ../alpha-auth-db && LocalStartDB.bat",
-    "start:ui": "cd ../alpha-auth && npm run start:dev"
+    "start:ui": "cd ../alpha-auth && npm run install-local && npm run start:dev"
   },
   "dependencies": {
     "@uncover/js-utils": "0.0.13",

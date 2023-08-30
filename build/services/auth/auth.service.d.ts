@@ -61,6 +61,6 @@ export declare const getUser: (service: any, userId: String) => Promise<any>;
  * postUserAvatar
  * @param {String} userId - URL parameter
  */
-export declare const postUserAvatar: (service: any, userId: String) => Promise<any>;
+export declare const postUserAvatar: (service: any, userId: String, payload: any) => Promise<any>;
 declare const AuthService: (config: any) => import("@uncover/js-utils-fetch/build/cjs/service").default;
 export default AuthService;

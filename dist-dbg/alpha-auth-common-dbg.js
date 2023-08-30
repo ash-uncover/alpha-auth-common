@@ -631,7 +631,7 @@ exports.getUser = getUser;
  * postUserAvatar
  * @param {String} userId - URL parameter
  */
-var postUserAvatar = function (service, userId) { return __awaiter(void 0, void 0, void 0, function () {
+var postUserAvatar = function (service, userId, payload) { return __awaiter(void 0, void 0, void 0, function () {
     var url, options, response, responseData;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -639,6 +639,7 @@ var postUserAvatar = function (service, userId) { return __awaiter(void 0, void 
                 url = "/users/".concat(userId, "/avatar");
                 options = {
                     method: 'POST',
+                    body: payload,
                 };
                 return [4 /*yield*/, service.fetch(url, options)];
             case 1:
@@ -652,7 +653,7 @@ var postUserAvatar = function (service, userId) { return __awaiter(void 0, void 
 }); };
 exports.postUserAvatar = postUserAvatar;
 var AuthService = function (config) {
-    var service = new js_utils_fetch_1.Service(config, '/rest/api/v1/auth', {
+    var service = new js_utils_fetch_1.Service(config, '/rest/api/v1', {
         'accounts': {
             'changemail': {
                 post: function (payload) { return (0, exports.postAccountChangeMail)(service, payload); },
@@ -679,7 +680,7 @@ var AuthService = function (config) {
             '$userId': {
                 get: function (userId) { return (0, exports.getUser)(service, userId); },
                 'avatar': {
-                    post: function (userId) { return (0, exports.postUserAvatar)(service, userId); },
+                    post: function (userId, payload) { return (0, exports.postUserAvatar)(service, userId, payload); },
                 },
             },
         },

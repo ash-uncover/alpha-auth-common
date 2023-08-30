@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "author": "aSH <ash.uncover@gmail.com>",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ash-uncover/alpha-auth-common"
+  },
   "main": "build/index.ts",
   "types": "build/index.d.ts",
   "scripts": {

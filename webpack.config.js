@@ -3,7 +3,6 @@ const path = require('path')
 const DIR_DIST = path.resolve(__dirname, 'dist')
 const DIR_DIST_DBG = path.resolve(__dirname, 'dist-dbg')
 const DIR_SRC = path.resolve(__dirname, 'src')
-const DIR_TOOLS = path.resolve(__dirname, 'tools')
 const DIR_NODE_MODULES = path.resolve(__dirname, 'node_modules')
 
 const configBase = {
@@ -12,26 +11,28 @@ const configBase = {
   devtool: 'source-map',
 
   resolve: {
+    modules: ['node_modules', './src'],
     extensions: ['.ts'],
   },
 
   output: {
     clean: true,
     path: DIR_DIST,
-    filename: '[name].js',
-    filename: './alpha-auth-common-[name].js',
-    library: 'alpha-auth-common',
-    libraryTarget: 'commonjs',
+    filename: '[name].bundle.js',
   },
 
   module: {
     rules: [
       {
         test: /.ts$/,
-        use: 'ts-loader',
+        use: {
+          loader: 'ts-loader',
+          options: {
+            configFile: 'tsconfig.webpack.json'
+          }
+        },
         exclude: [
           DIR_NODE_MODULES,
-          DIR_TOOLS,
         ],
       },
     ],

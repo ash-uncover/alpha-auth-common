@@ -296,6 +296,28 @@ exports["default"] = Service;
 
 /***/ }),
 
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AuthModel = exports.AuthService = void 0;
+const auth_1 = __importDefault(__webpack_require__(/*! ./services/auth */ "./src/services/auth/index.ts"));
+exports.AuthService = auth_1.default.Service;
+exports.AuthModel = auth_1.default.Model;
+exports["default"] = {
+    Auth: auth_1.default,
+};
+
+
+/***/ }),
+
 /***/ "./src/services/auth/auth.model.ts":
 /*!*****************************************!*\
   !*** ./src/services/auth/auth.model.ts ***!
@@ -324,363 +346,216 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.postUserAvatar = exports.getUser = exports.deleteAuth = exports.getAuth = exports.postAuth = exports.getAccount = exports.putAccountRegister = exports.postAccountRegister = exports.putAccountRecover = exports.postAccountRecover = exports.putAccountChangeMail = exports.postAccountChangeMail = void 0;
-var js_utils_fetch_1 = __webpack_require__(/*! @uncover/js-utils-fetch */ "./node_modules/@uncover/js-utils-fetch/build/cjs/index.js");
+const js_utils_fetch_1 = __webpack_require__(/*! @uncover/js-utils-fetch */ "./node_modules/@uncover/js-utils-fetch/build/cjs/index.js");
 /**
  * POST /accounts/changemail
  * postAccountChangeMail
  */
-var postAccountChangeMail = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/accounts/changemail";
-                options = {
-                    method: 'POST',
-                    body: JSON.stringify(payload),
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const postAccountChangeMail = (service, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/accounts/changemail`;
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(payload),
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.postAccountChangeMail = postAccountChangeMail;
 /**
  * PUT /accounts/changemail
  * putAccountChangeMail
  */
-var putAccountChangeMail = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/accounts/changemail";
-                options = {
-                    method: 'PUT',
-                    body: JSON.stringify(payload),
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const putAccountChangeMail = (service, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/accounts/changemail`;
+    const options = {
+        method: 'PUT',
+        body: JSON.stringify(payload),
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.putAccountChangeMail = putAccountChangeMail;
 /**
  * POST /accounts/recover
  * postAccountRecover
  */
-var postAccountRecover = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/accounts/recover";
-                options = {
-                    method: 'POST',
-                    body: JSON.stringify(payload),
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const postAccountRecover = (service, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/accounts/recover`;
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(payload),
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.postAccountRecover = postAccountRecover;
 /**
  * PUT /accounts/recover
  * putAccountRecover
  */
-var putAccountRecover = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/accounts/recover";
-                options = {
-                    method: 'PUT',
-                    body: JSON.stringify(payload),
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const putAccountRecover = (service, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/accounts/recover`;
+    const options = {
+        method: 'PUT',
+        body: JSON.stringify(payload),
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.putAccountRecover = putAccountRecover;
 /**
  * POST /accounts/register
  * postAccountRegister
  */
-var postAccountRegister = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/accounts/register";
-                options = {
-                    method: 'POST',
-                    body: JSON.stringify(payload),
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const postAccountRegister = (service, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/accounts/register`;
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(payload),
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.postAccountRegister = postAccountRegister;
 /**
  * PUT /accounts/register
  * putAccountRegister
  */
-var putAccountRegister = function (service, payload) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/accounts/register";
-                options = {
-                    method: 'PUT',
-                    body: JSON.stringify(payload),
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const putAccountRegister = (service, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/accounts/register`;
+    const options = {
+        method: 'PUT',
+        body: JSON.stringify(payload),
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.putAccountRegister = putAccountRegister;
 /**
  * GET /accounts/{accountId}
  * getAccount
  * @param {String} accountId - URL parameter
  */
-var getAccount = function (service, accountId) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/accounts/".concat(accountId);
-                options = {
-                    method: 'GET',
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const getAccount = (service, accountId) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/accounts/${accountId}`;
+    const options = {
+        method: 'GET',
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.getAccount = getAccount;
 /**
  * POST /auth
  * Create session
  */
-var postAuth = function (service) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/auth";
-                options = {
-                    method: 'POST',
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const postAuth = (service) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/auth`;
+    const options = {
+        method: 'POST',
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.postAuth = postAuth;
 /**
  * GET /auth
  * Check auth
  */
-var getAuth = function (service) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/auth";
-                options = {
-                    method: 'GET',
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const getAuth = (service) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/auth`;
+    const options = {
+        method: 'GET',
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.getAuth = getAuth;
 /**
  * DELETE /auth
  * Delete session
  */
-var deleteAuth = function (service) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/auth";
-                options = {
-                    method: 'DELETE',
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const deleteAuth = (service) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/auth`;
+    const options = {
+        method: 'DELETE',
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.deleteAuth = deleteAuth;
 /**
  * GET /users/{userId}
  * getUser
  * @param {String} userId - URL parameter
  */
-var getUser = function (service, userId) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/users/".concat(userId);
-                options = {
-                    method: 'GET',
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const getUser = (service, userId) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/users/${userId}`;
+    const options = {
+        method: 'GET',
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.getUser = getUser;
 /**
  * POST /users/{userId}/avatar
  * postUserAvatar
  * @param {String} userId - URL parameter
  */
-var postUserAvatar = function (service, userId, payload) { return __awaiter(void 0, void 0, void 0, function () {
-    var url, options, response, responseData;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                url = "/users/".concat(userId, "/avatar");
-                options = {
-                    method: 'POST',
-                    body: payload,
-                };
-                return [4 /*yield*/, service.fetch(url, options)];
-            case 1:
-                response = _a.sent();
-                return [4 /*yield*/, response.json()];
-            case 2:
-                responseData = _a.sent();
-                return [2 /*return*/, responseData];
-        }
-    });
-}); };
+const postUserAvatar = (service, userId, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/users/${userId}/avatar`;
+    const options = {
+        method: 'POST',
+        body: payload,
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
 exports.postUserAvatar = postUserAvatar;
-var AuthService = function (config) {
-    var service = new js_utils_fetch_1.Service(config, '/rest/api/v1', {
+const AuthService = (config) => {
+    const service = new js_utils_fetch_1.Service(config, '/rest/api/v1', {
         'accounts': {
             'changemail': {
-                post: function (payload) { return (0, exports.postAccountChangeMail)(service, payload); },
-                put: function (payload) { return (0, exports.putAccountChangeMail)(service, payload); },
+                post: (payload) => (0, exports.postAccountChangeMail)(service, payload),
+                put: (payload) => (0, exports.putAccountChangeMail)(service, payload),
             },
             'recover': {
-                post: function (payload) { return (0, exports.postAccountRecover)(service, payload); },
-                put: function (payload) { return (0, exports.putAccountRecover)(service, payload); },
+                post: (payload) => (0, exports.postAccountRecover)(service, payload),
+                put: (payload) => (0, exports.putAccountRecover)(service, payload),
             },
             'register': {
-                post: function (payload) { return (0, exports.postAccountRegister)(service, payload); },
-                put: function (payload) { return (0, exports.putAccountRegister)(service, payload); },
+                post: (payload) => (0, exports.postAccountRegister)(service, payload),
+                put: (payload) => (0, exports.putAccountRegister)(service, payload),
             },
             '$accountId': {
-                get: function (accountId) { return (0, exports.getAccount)(service, accountId); },
+                get: (accountId) => (0, exports.getAccount)(service, accountId),
             },
         },
         'auth': {
-            post: function () { return (0, exports.postAuth)(service); },
-            get: function () { return (0, exports.getAuth)(service); },
-            delete: function () { return (0, exports.deleteAuth)(service); },
+            post: () => (0, exports.postAuth)(service),
+            get: () => (0, exports.getAuth)(service),
+            delete: () => (0, exports.deleteAuth)(service),
         },
         'users': {
             '$userId': {
-                get: function (userId) { return (0, exports.getUser)(service, userId); },
+                get: (userId) => (0, exports.getUser)(service, userId),
                 'avatar': {
-                    post: function (userId, payload) { return (0, exports.postUserAvatar)(service, userId, payload); },
+                    post: (userId, payload) => (0, exports.postUserAvatar)(service, userId, payload),
                 },
             },
         },
@@ -696,14 +571,40 @@ exports["default"] = AuthService;
 /*!************************************!*\
   !*** ./src/services/auth/index.ts ***!
   \************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var auth_service_1 = __webpack_require__(/*! ./auth.service */ "./src/services/auth/auth.service.ts");
-var Model = __webpack_require__(/*! ./auth.model */ "./src/services/auth/auth.model.ts");
+const auth_service_1 = __importDefault(__webpack_require__(/*! ./auth.service */ "./src/services/auth/auth.service.ts"));
+const Model = __importStar(__webpack_require__(/*! ./auth.model */ "./src/services/auth/auth.model.ts"));
 exports["default"] = {
-    Model: Model,
+    Model,
     Service: auth_service_1.default,
 };
 
@@ -737,26 +638,12 @@ exports["default"] = {
 /******/ 	}
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-var exports = __webpack_exports__;
-/*!**********************!*\
-  !*** ./src/index.ts ***!
-  \**********************/
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AuthModel = exports.AuthService = void 0;
-var auth_1 = __webpack_require__(/*! ./services/auth */ "./src/services/auth/index.ts");
-exports.AuthService = auth_1.default.Service;
-exports.AuthModel = auth_1.default.Model;
-exports["default"] = {
-    Auth: auth_1.default,
-};
-
-})();
-
-exports["alpha-auth-common"] = __webpack_exports__;
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.ts");
+/******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=alpha-auth-common-dbg.js.map
+//# sourceMappingURL=dbg.bundle.js.map

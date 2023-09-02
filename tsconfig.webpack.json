@@ -1,25 +1,27 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
+    "baseUrl": ".",
     "declaration": true,
+    "esModuleInterop": true,
     "lib": [
       "esnext",
       "DOM",
     ],
+    "module": "commonjs",
+    "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "./build",
     "sourceMap": true,
     "strict": true,
-    "target": "es5"
+    "target": "es6"
   },
+  "include": [
+    "src",
+  ],
   "exclude": [
+    "build",
     "node_modules",
     "/.test.",
     "/..",
-  ],
-  "include": [
-    "src",
-    "tools",
   ]
 }

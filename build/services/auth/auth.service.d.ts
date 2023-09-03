@@ -39,7 +39,7 @@ export declare const getAccount: (service: any, accountId: String) => Promise<an
  * POST /auth
  * Create session
  */
-export declare const postAuth: (service: any) => Promise<any>;
+export declare const postAuth: (service: any, payload: Credentials) => Promise<any>;
 /**
  * GET /auth
  * Check auth

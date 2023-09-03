@@ -458,10 +458,11 @@ exports.getAccount = getAccount;
  * POST /auth
  * Create session
  */
-const postAuth = (service) => __awaiter(void 0, void 0, void 0, function* () {
+const postAuth = (service, payload) => __awaiter(void 0, void 0, void 0, function* () {
     const url = `/auth`;
     const options = {
         method: 'POST',
+        body: JSON.stringify(payload),
     };
     const response = yield service.fetch(url, options);
     const responseData = yield response.json();
@@ -547,7 +548,7 @@ const AuthService = (config) => {
             },
         },
         'auth': {
-            post: () => (0, exports.postAuth)(service),
+            post: (payload) => (0, exports.postAuth)(service, payload),
             get: () => (0, exports.getAuth)(service),
             delete: () => (0, exports.deleteAuth)(service),
         },

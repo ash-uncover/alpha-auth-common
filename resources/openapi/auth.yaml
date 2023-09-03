@@ -25,6 +25,11 @@ paths:
       summary: Create session
       description: Creates a session
       operationId: postAuth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Credentials'
       responses:
         '201':
           description: Session created

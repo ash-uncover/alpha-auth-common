@@ -266,14 +266,15 @@ var getAccount = /*#__PURE__*/function () {
  */
 exports.getAccount = getAccount;
 var postAuth = /*#__PURE__*/function () {
-  var _ref8 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(service) {
+  var _ref8 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(service, payload) {
     var url, options, response, responseData;
     return _regeneratorRuntime().wrap(function _callee8$(_context8) {
       while (1) switch (_context8.prev = _context8.next) {
         case 0:
           url = "/auth";
           options = {
-            method: 'POST'
+            method: 'POST',
+            body: JSON.stringify(payload)
           };
           _context8.next = 4;
           return service.fetch(url, options);
@@ -290,7 +291,7 @@ var postAuth = /*#__PURE__*/function () {
       }
     }, _callee8);
   }));
-  return function postAuth(_x15) {
+  return function postAuth(_x15, _x16) {
     return _ref8.apply(this, arguments);
   };
 }();
@@ -325,7 +326,7 @@ var getAuth = /*#__PURE__*/function () {
       }
     }, _callee9);
   }));
-  return function getAuth(_x16) {
+  return function getAuth(_x17) {
     return _ref9.apply(this, arguments);
   };
 }();
@@ -360,7 +361,7 @@ var deleteAuth = /*#__PURE__*/function () {
       }
     }, _callee10);
   }));
-  return function deleteAuth(_x17) {
+  return function deleteAuth(_x18) {
     return _ref10.apply(this, arguments);
   };
 }();
@@ -396,7 +397,7 @@ var getUser = /*#__PURE__*/function () {
       }
     }, _callee11);
   }));
-  return function getUser(_x18, _x19) {
+  return function getUser(_x19, _x20) {
     return _ref11.apply(this, arguments);
   };
 }();
@@ -433,7 +434,7 @@ var postUserAvatar = /*#__PURE__*/function () {
       }
     }, _callee12);
   }));
-  return function postUserAvatar(_x20, _x21, _x22) {
+  return function postUserAvatar(_x21, _x22, _x23) {
     return _ref12.apply(this, arguments);
   };
 }();
@@ -472,8 +473,8 @@ var AuthService = function AuthService(config) {
       }
     },
     'auth': {
-      post: function post() {
-        return postAuth(service);
+      post: function post(payload) {
+        return postAuth(service, payload);
       },
       get: function get() {
         return getAuth(service);

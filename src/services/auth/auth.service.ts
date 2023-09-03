@@ -118,10 +118,11 @@ export const getAccount = async (service:any, accountId:String) => {
  * POST /auth
  * Create session
  */
-export const postAuth = async (service:any) => {
+export const postAuth = async (service:any, payload:Credentials) => {
   const url = `/auth`
   const options = {
     method: 'POST',
+    body: JSON.stringify(payload),
   }
   const response = await service.fetch(url, options)
   const responseData = await response.json()
@@ -207,7 +208,7 @@ const AuthService = (config: any) => {
       },
     },
     'auth': {
-      post: () => postAuth(service),
+      post: (payload:Credentials) => postAuth(service, payload),
       get: () => getAuth(service),
       delete: () => deleteAuth(service),
     },

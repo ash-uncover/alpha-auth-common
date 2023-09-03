@@ -7,6 +7,7 @@ import {
   Credentials,
   CredentialsUsername,
   User,
+  UserToken,
 } from './auth.model'
 
 /**

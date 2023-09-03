@@ -33,6 +33,10 @@ paths:
       responses:
         '201':
           description: Session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserToken'
         '401':
           description: Authentication failed
     delete:
@@ -323,9 +327,18 @@ components:
     User:
       type: object
       properties:
+        id:
+          type: string
         name:
           type: string
         avatar:
           type: string
         description:
+          type: string
+    UserToken:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        token:
           type: string

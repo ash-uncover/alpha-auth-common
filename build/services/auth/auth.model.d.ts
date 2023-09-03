@@ -26,5 +26,10 @@ export interface CredentialsUsername {
 export interface User {
     'avatar'?: string;
     'description'?: string;
+    'id'?: string;
     'name'?: string;
+}
+export interface UserToken {
+    'token'?: string;
+    'user'?: User;
 }

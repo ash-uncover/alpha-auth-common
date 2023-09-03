@@ -33,5 +33,11 @@ export interface CredentialsUsername {
 export interface User {
   'avatar'?: string
   'description'?: string
+  'id'?: string
   'name'?: string
+}
+// UserToken
+export interface UserToken {
+  'token'?: string
+  'user'?: User
 }

@@ -17,6 +17,10 @@ paths:
       responses:
         '200':
           description: Authentication successfull
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
         '401':
           description: Authentication failed
     post:

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "checkJs": true,
     "declaration": true,
-    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "lib": [
       "ESNext",
@@ -12,20 +12,21 @@
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "build",
-    "sourceMap": true,
+    "removeComments": true,
     "strict": true,
     "target": "es6",
     "typeRoots": [
       "node_modules/@types"
     ]
   },
+  "files": [
+    "./src/index.ts"
+  ],
   "include": [
     "src"
   ],
   "exclude": [
-    "build",
     "node_modules",
-    "**/*.test.*",
-    "**/*..*"
+    "**/*.test.*"
   ]
 }

@@ -15,9 +15,7 @@
     "build/**/*"
   ],
   "scripts": {
-    "build": "npm run build:generate && npm run build:compile && npm run build:babel && npm run build:bundle",
-    "build:babel": "babel src --extensions .ts,.tsx --out-dir build",
-    "build:bundle": "webpack",
+    "build": "npm run build:generate && npm run build:compile",
     "build:compile": "tsc",
     "build:generate": "js-swagger-generator --files=resources/openapi --output=src",
     "format": "prettier --write \"src//*.ts\" \"src//.tsx\" \"src/**/.js\" \"src/*/.jsx\"",
@@ -29,18 +27,18 @@
     "start:ui": "cd ../alpha-auth && npm run install-local && npm run start:dev"
   },
   "dependencies": {
-    "@uncover/js-utils": "0.0.13",
-    "@uncover/js-utils-fetch": "0.0.3",
+    "@uncover/js-utils": "0.0.15",
+    "@uncover/js-utils-fetch": "0.0.4",
     "@uncover/js-utils-logger": "0.1.5"
   },
   "devDependencies": {
-    "@babel/cli": "7.22.10",
-    "@babel/core": "7.22.11",
-    "@babel/preset-env": "7.22.14",
-    "@babel/preset-react": "7.22.5",
-    "@babel/preset-typescript": "7.22.11",
-    "@types/node": "20.5.8",
-    "@uncover/js-swagger-generator": "0.0.8",
+    "@babel/cli": "7.22.15",
+    "@babel/core": "7.22.15",
+    "@babel/preset-env": "7.22.15",
+    "@babel/preset-react": "7.22.15",
+    "@babel/preset-typescript": "7.22.15",
+    "@types/node": "20.5.9",
+    "@uncover/js-swagger-generator": "0.0.10",
     "concurrently": "8.2.1",
     "ts-loader": "9.4.4",
     "ts-node": "10.9.1",

@@ -29,6 +29,11 @@ export interface Credentials {
 export interface CredentialsUsername {
   'username'?: string
 }
+// HealthInfo
+export interface HealthInfo {
+  'database': Boolean
+  'server': Boolean
+}
 // User
 export interface User {
   'avatar'?: string

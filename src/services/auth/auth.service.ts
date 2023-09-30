@@ -6,6 +6,7 @@ import {
   AccountTokenRegister,
   Credentials,
   CredentialsUsername,
+  HealthInfo,
   User,
   UserInfo,
   UserToken,

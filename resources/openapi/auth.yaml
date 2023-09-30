@@ -17,6 +17,10 @@ paths:
       responses:
         '200':
           description: Server is runing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthInfo'
   /auth:
     get:
       tags:
@@ -286,6 +290,16 @@ paths:
           description: User not found
 components:
   schemas:
+    HealthInfo:
+      type: object
+      required:
+        - server
+        - database
+      properties:
+        server:
+          type: boolean
+        database:
+          type: boolean
     Credentials:
       type: object
       required:

@@ -1,4 +1,4 @@
-# ap-auth-common
+# alpha-auth-common
 
 ## Content
 

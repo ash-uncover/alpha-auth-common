@@ -11,6 +11,7 @@ export declare const getAccount: (service: any, accountId: String) => Promise<an
 export declare const postAuth: (service: any, payload: Credentials) => Promise<any>;
 export declare const getAuth: (service: any) => Promise<any>;
 export declare const deleteAuth: (service: any) => Promise<any>;
+export declare const getHealth: (service: any) => Promise<any>;
 export declare const patchUser: (service: any, userId: String, payload: UserInfo) => Promise<any>;
 export declare const getUser: (service: any, userId: String) => Promise<any>;
 export declare const postUserAvatar: (service: any, userId: String, payload: any) => Promise<any>;

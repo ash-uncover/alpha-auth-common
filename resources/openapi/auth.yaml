@@ -7,6 +7,16 @@ info:
   title: alpha-auth-api
   description: The API Alpha Auth
 paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Check health
+      description: Check server status
+      operationId: getHealth
+      responses:
+        '200':
+          description: Server is runing
   /auth:
     get:
       tags:

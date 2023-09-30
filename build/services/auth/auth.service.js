@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.postUserAvatar = exports.getUser = exports.patchUser = exports.deleteAuth = exports.getAuth = exports.postAuth = exports.getAccount = exports.patchAccount = exports.putAccountRegister = exports.postAccountRegister = exports.putAccountRecover = exports.postAccountRecover = exports.putAccountChangeMail = exports.postAccountChangeMail = void 0;
+exports.postUserAvatar = exports.getUser = exports.patchUser = exports.getHealth = exports.deleteAuth = exports.getAuth = exports.postAuth = exports.getAccount = exports.patchAccount = exports.putAccountRegister = exports.postAccountRegister = exports.putAccountRecover = exports.postAccountRecover = exports.putAccountChangeMail = exports.postAccountChangeMail = void 0;
 const js_utils_fetch_1 = require("@uncover/js-utils-fetch");
 const postAccountChangeMail = (service, payload) => __awaiter(void 0, void 0, void 0, function* () {
     const url = `/accounts/changemail`;
@@ -128,6 +128,16 @@ const deleteAuth = (service) => __awaiter(void 0, void 0, void 0, function* () {
     return responseData;
 });
 exports.deleteAuth = deleteAuth;
+const getHealth = (service) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/health`;
+    const options = {
+        method: 'GET',
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
+exports.getHealth = getHealth;
 const patchUser = (service, userId, payload) => __awaiter(void 0, void 0, void 0, function* () {
     const url = `/users/${userId}`;
     const options = {
@@ -184,6 +194,9 @@ const AuthService = (config) => {
             post: (payload) => (0, exports.postAuth)(service, payload),
             get: () => (0, exports.getAuth)(service),
             delete: () => (0, exports.deleteAuth)(service),
+        },
+        'health': {
+            get: () => (0, exports.getHealth)(service),
         },
         'users': {
             '$userId': {

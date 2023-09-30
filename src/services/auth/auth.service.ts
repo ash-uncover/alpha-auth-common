@@ -175,6 +175,20 @@ export const deleteAuth = async (service:any) => {
 }
 
 /**
+ * GET /health
+ * Check health
+ */
+export const getHealth = async (service:any) => {
+  const url = `/health`
+  const options = {
+    method: 'GET',
+  }
+  const response = await service.fetch(url, options)
+  const responseData = await response.json()
+  return responseData
+}
+
+/**
  * PATCH /users/{userId}
  * patchUser
  * @param {String} userId - URL parameter
@@ -245,6 +259,9 @@ const AuthService = (config: any) => {
       post: (payload:Credentials) => postAuth(service, payload),
       get: () => getAuth(service),
       delete: () => deleteAuth(service),
+    },
+    'health': {
+      get: () => getHealth(service),
     },
     'users': {
       '$userId': {

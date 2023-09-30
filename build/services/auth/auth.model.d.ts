@@ -29,6 +29,10 @@ export interface User {
     'id'?: string;
     'name'?: string;
 }
+export interface UserInfo {
+    'description'?: string;
+    'name'?: string;
+}
 export interface UserToken {
     'token'?: string;
     'user'?: User;

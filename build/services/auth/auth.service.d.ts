@@ -1,15 +1,17 @@
 import { Service } from '@uncover/js-utils-fetch';
-import { AccountToken, AccountTokenRecover, AccountTokenRegister, Credentials, CredentialsUsername } from './auth.model';
+import { AccountToken, AccountTokenRecover, AccountTokenRegister, Credentials, CredentialsUsername, UserInfo } from './auth.model';
 export declare const postAccountChangeMail: (service: any, payload: CredentialsUsername) => Promise<any>;
 export declare const putAccountChangeMail: (service: any, payload: AccountToken) => Promise<any>;
 export declare const postAccountRecover: (service: any, payload: CredentialsUsername) => Promise<any>;
 export declare const putAccountRecover: (service: any, payload: AccountTokenRecover) => Promise<any>;
 export declare const postAccountRegister: (service: any, payload: Credentials) => Promise<any>;
 export declare const putAccountRegister: (service: any, payload: AccountTokenRegister) => Promise<any>;
+export declare const patchAccount: (service: any, accountId: String) => Promise<any>;
 export declare const getAccount: (service: any, accountId: String) => Promise<any>;
 export declare const postAuth: (service: any, payload: Credentials) => Promise<any>;
 export declare const getAuth: (service: any) => Promise<any>;
 export declare const deleteAuth: (service: any) => Promise<any>;
+export declare const patchUser: (service: any, userId: String, payload: UserInfo) => Promise<any>;
 export declare const getUser: (service: any, userId: String) => Promise<any>;
 export declare const postUserAvatar: (service: any, userId: String, payload: any) => Promise<any>;
 declare const AuthService: (config: any) => Service;

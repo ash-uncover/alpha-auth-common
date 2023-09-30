@@ -227,6 +227,11 @@ paths:
           required: true
           schema:
             type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
       responses:
         '200':
           description: Update successfull
@@ -327,6 +332,13 @@ components:
         token:
           type: string
         username:
+          type: string
+    UserInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
           type: string
     User:
       type: object

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.postUserAvatar = exports.getUser = exports.deleteAuth = exports.getAuth = exports.postAuth = exports.getAccount = exports.putAccountRegister = exports.postAccountRegister = exports.putAccountRecover = exports.postAccountRecover = exports.putAccountChangeMail = exports.postAccountChangeMail = void 0;
+exports.postUserAvatar = exports.getUser = exports.patchUser = exports.deleteAuth = exports.getAuth = exports.postAuth = exports.getAccount = exports.patchAccount = exports.putAccountRegister = exports.postAccountRegister = exports.putAccountRecover = exports.postAccountRecover = exports.putAccountChangeMail = exports.postAccountChangeMail = void 0;
 const js_utils_fetch_1 = require("@uncover/js-utils-fetch");
 const postAccountChangeMail = (service, payload) => __awaiter(void 0, void 0, void 0, function* () {
     const url = `/accounts/changemail`;
@@ -77,6 +77,16 @@ const putAccountRegister = (service, payload) => __awaiter(void 0, void 0, void 
     return responseData;
 });
 exports.putAccountRegister = putAccountRegister;
+const patchAccount = (service, accountId) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/accounts/${accountId}`;
+    const options = {
+        method: 'PATCH',
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
+exports.patchAccount = patchAccount;
 const getAccount = (service, accountId) => __awaiter(void 0, void 0, void 0, function* () {
     const url = `/accounts/${accountId}`;
     const options = {
@@ -118,6 +128,17 @@ const deleteAuth = (service) => __awaiter(void 0, void 0, void 0, function* () {
     return responseData;
 });
 exports.deleteAuth = deleteAuth;
+const patchUser = (service, userId, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const url = `/users/${userId}`;
+    const options = {
+        method: 'PATCH',
+        body: JSON.stringify(payload),
+    };
+    const response = yield service.fetch(url, options);
+    const responseData = yield response.json();
+    return responseData;
+});
+exports.patchUser = patchUser;
 const getUser = (service, userId) => __awaiter(void 0, void 0, void 0, function* () {
     const url = `/users/${userId}`;
     const options = {
@@ -155,6 +176,7 @@ const AuthService = (config) => {
                 put: (payload) => (0, exports.putAccountRegister)(service, payload),
             },
             '$accountId': {
+                patch: (accountId) => (0, exports.patchAccount)(service, accountId),
                 get: (accountId) => (0, exports.getAccount)(service, accountId),
             },
         },
@@ -165,6 +187,7 @@ const AuthService = (config) => {
         },
         'users': {
             '$userId': {
+                patch: (userId, payload) => (0, exports.patchUser)(service, userId, payload),
                 get: (userId) => (0, exports.getUser)(service, userId),
                 'avatar': {
                     post: (userId, payload) => (0, exports.postUserAvatar)(service, userId, payload),

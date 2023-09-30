@@ -7,6 +7,7 @@ import {
   Credentials,
   CredentialsUsername,
   User,
+  UserInfo,
   UserToken,
 } from './auth.model'
 
@@ -101,6 +102,21 @@ export const putAccountRegister = async (service:any, payload:AccountTokenRegist
 }
 
 /**
+ * PATCH /accounts/{accountId}
+ * patchAccount
+ * @param {String} accountId - URL parameter
+ */
+export const patchAccount = async (service:any, accountId:String) => {
+  const url = `/accounts/${accountId}`
+  const options = {
+    method: 'PATCH',
+  }
+  const response = await service.fetch(url, options)
+  const responseData = await response.json()
+  return responseData
+}
+
+/**
  * GET /accounts/{accountId}
  * getAccount
  * @param {String} accountId - URL parameter
@@ -159,6 +175,22 @@ export const deleteAuth = async (service:any) => {
 }
 
 /**
+ * PATCH /users/{userId}
+ * patchUser
+ * @param {String} userId - URL parameter
+ */
+export const patchUser = async (service:any, userId:String, payload:UserInfo) => {
+  const url = `/users/${userId}`
+  const options = {
+    method: 'PATCH',
+    body: JSON.stringify(payload),
+  }
+  const response = await service.fetch(url, options)
+  const responseData = await response.json()
+  return responseData
+}
+
+/**
  * GET /users/{userId}
  * getUser
  * @param {String} userId - URL parameter
@@ -205,6 +237,7 @@ const AuthService = (config: any) => {
         put: (payload:AccountTokenRegister) => putAccountRegister(service, payload),
       },
       '$accountId': {
+        patch: (accountId:String) => patchAccount(service, accountId),
         get: (accountId:String) => getAccount(service, accountId),
       },
     },
@@ -215,6 +248,7 @@ const AuthService = (config: any) => {
     },
     'users': {
       '$userId': {
+        patch: (userId:String, payload:UserInfo) => patchUser(service, userId, payload),
         get: (userId:String) => getUser(service, userId),
         'avatar': {
           post: (userId:String, payload:any) => postUserAvatar(service, userId, payload),

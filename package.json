@@ -27,16 +27,16 @@
   "dependencies": {
     "@uncover/js-utils": "0.0.15",
     "@uncover/js-utils-fetch": "0.0.4",
-    "@uncover/js-utils-logger": "0.1.5"
+    "@uncover/js-utils-logger": "0.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.22.15",
-    "@babel/core": "7.22.15",
-    "@babel/preset-env": "7.22.15",
+    "@babel/cli": "7.23.0",
+    "@babel/core": "7.23.0",
+    "@babel/preset-env": "7.22.20",
     "@babel/preset-react": "7.22.15",
-    "@babel/preset-typescript": "7.22.15",
-    "@types/node": "20.5.9",
-    "@uncover/js-swagger-generator": "0.0.10",
+    "@babel/preset-typescript": "7.23.0",
+    "@types/node": "20.8.0",
+    "@uncover/js-swagger-generator": "0.0.12",
     "concurrently": "8.2.1",
     "ts-loader": "9.4.4",
     "ts-node": "10.9.1",

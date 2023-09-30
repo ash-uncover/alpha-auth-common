@@ -21,6 +21,8 @@ The following workflows are made available by the alpha-auth project:
   - [First Connection](https://github.com/ash-uncover/alpha-auth-common#fresh-connection)
   - [Next Connections](https://github.com/ash-uncover/alpha-auth-common#subsequent-connections)
   - [Logout](https://github.com/ash-uncover/alpha-auth-common#logout)
+- [Registration](https://github.com/ash-uncover/alpha-auth-common#registration)
+- [Recovery](https://github.com/ash-uncover/alpha-auth-common#recovery)
 
 ### Authentication
 

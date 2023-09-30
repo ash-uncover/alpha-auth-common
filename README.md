@@ -2,7 +2,7 @@
 
 ## Content
 
-This project contains generated model and service based on the OpenAPI definition
+This project contains generated model and service based on the OpenAPI definition.
 
 ## Ecosystem
 

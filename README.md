@@ -20,7 +20,7 @@ This project contains generated model and service based on the OpenAPI definitio
 #### Fresh connection
 
 <!--
-@startuml ./help/auth-login
+@startuml ./resources/help/auth-login
 
 footer "fig: auth-login"
 
@@ -56,12 +56,12 @@ end
 
 @enduml
 -->
-![](./help/auth-login.png)
+![](./resources/help/auth-login.png)
 
 #### Subsequent connections
 
 <!--
-@startuml ./help/auth-login-stored
+@startuml ./resources/help/auth-login-stored
 
 footer "fig: auth-login-stored"
 
@@ -94,12 +94,12 @@ end
 
 @enduml
 -->
-![](./help/auth-login-stored.png)
+![](./resources/help/auth-login-stored.png)
 
 #### Logout
 
 <!--
-@startuml ./help/auth-logout
+@startuml ./resources/help/auth-logout
 
 footer "fig: auth-logout"
 
@@ -123,7 +123,7 @@ deactivate UI
 
 @enduml
 -->
-![](./help/auth-logout.png)
+![](./resources/help/auth-logout.png)
 
 ### Registration
 

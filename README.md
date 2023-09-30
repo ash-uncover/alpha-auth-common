@@ -15,6 +15,13 @@ This project contains generated model and service based on the OpenAPI definitio
 
 ## Features
 
+The following workflows are made available by the alpha-auth project:
+
+- [Authentication](https://github.com/ash-uncover/alpha-auth-common#authentication)
+  - [First Connection](https://github.com/ash-uncover/alpha-auth-common#fresh-connection)
+  - [Next Connections](https://github.com/ash-uncover/alpha-auth-common#subsequent-connections)
+  - [Logout](https://github.com/ash-uncover/alpha-auth-common#logout)
+
 ### Authentication
 
 #### Fresh connection

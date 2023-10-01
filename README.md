@@ -22,7 +22,8 @@ The following workflows are made available by the alpha-auth project:
   - [Next Connections](https://github.com/ash-uncover/alpha-auth-common#subsequent-connections)
   - [Logout](https://github.com/ash-uncover/alpha-auth-common#logout)
 - [Registration](https://github.com/ash-uncover/alpha-auth-common#registration)
-- [Recovery](https://github.com/ash-uncover/alpha-auth-common#recovery)
+- [Password Recovery](https://github.com/ash-uncover/alpha-auth-common#password-recovery)
+- [Change Mail](https://github.com/ash-uncover/alpha-auth-common#change-mail)
 
 ### Authentication
 
@@ -136,4 +137,108 @@ deactivate UI
 
 ### Registration
 
-### Recovery
+<!--
+@startuml ./resources/help/registration
+
+footer "fig: registration"
+
+title Account Creation
+
+participant "User mail" as mail
+actor User as user
+participant "Application" as UI
+participant "API" as API
+database "Database" as DB
+
+user -> UI: Account creation request
+activate UI
+UI -> API: POST /auth/register { username, password }
+activate API
+API -> DB: Create account
+API <-- DB: Return registration token
+mail <-- API: Send mail with token
+UI <-- API: HTTP 201: { token }
+deactivate API
+user <-- UI: Display <tokenInput>
+deactivate UI
+user <-- mail: Read token
+user -> UI: Enter token
+activate UI
+UI -> API: PUT /auth/register { token }
+activate API
+API -> DB: Check token exists
+activate DB
+API <-- DB: Return account
+API -> DB: Activate account
+API -> DB: Create user
+deactivate DB
+UI <-- API: HTTP 200
+deactivate API
+UI -> UI: Store session information
+user <-- UI: Display <login>
+deactivate UI
+
+@enduml
+-->
+![](./resources/help/registration.png)
+
+### Password Recovery
+
+<!--
+@startuml ./resources/help/recovery
+
+footer "fig: recovery"
+
+title Password recovery
+
+participant "User mail" as mail
+actor User as user
+participant "Application" as UI
+participant "API" as API
+database "Database" as DB
+
+user -> UI: Password reset request
+activate UI
+UI -> API: POST /auth/recovery { username }
+activate API
+API -> DB: Check account exist
+API <-- DB: Return account
+API -> DB: Add recovery token to account
+mail <-- API: Send mail with token
+UI <-- API: HTTP 201: { token }
+deactivate API
+user <-- UI: Display <tokenInput>
+deactivate UI
+user <-- mail: Read token
+user -> UI: Enter token
+activate UI
+UI -> API: PUT /auth/recover { token }
+activate API
+API -> DB: Check token exists
+activate DB
+API <-- DB: Return account
+API -> DB: Set account state to 'must change password'
+deactivate DB
+UI <-- API: HTTP 200
+deactivate API
+user <-- UI: Display <updatePassword>
+deactivate UI
+user -> UI: Send new password
+activate UI
+UI -> API: PUT /auth/recover { token, password }
+activate API
+API -> DB: Check token exists
+activate DB
+API <-- DB: Return account
+API -> DB: Update account state & password
+deactivate DB
+UI <-- API: HTTP 200
+deactivate API
+user <-- UI: Display <login>
+deactivate UI
+
+@enduml
+-->
+![](./resources/help/recovery.png)
+
+### Change Mail

@@ -82,6 +82,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccountToken'
+        '409':
+          description: response
     put:
       tags:
         - Account
